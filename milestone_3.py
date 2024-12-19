@@ -16,8 +16,12 @@ def check_guess(char):  #if statement that checks if the guessed letter is in th
     random_word = random_word_generator(word_list)
     if char in random_word:
         print(f"Good guess! {char} is in the word")
+        for letter in random_word:
+            if letter == char:
+                pass
     else: 
         print(f"Sorry {char} is not in the word. Try again")
+    
 
 word_list = ["mango", "passionfruit", "papaya", "blueberries", "oranges"] 
 
