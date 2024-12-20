@@ -18,9 +18,11 @@ def check_guess(guess):  #if statement that checks if the guessed letter is in t
     print(word_guessed)
     if guess in random_word:
         print(f"Good guess! {guess} is in the word")
-        for letter in enumerate(random_word):
+        for index, letter in enumerate(random_word):
             if letter == guess:
-                pass
+                print(letter)
+                word_guessed[index] = guess
+            
 
                 #word_guessed = word_guessed.replace(, guess)  
     else: 
