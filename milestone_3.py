@@ -11,23 +11,26 @@ from milestone_2 import random_word_generator
 #     check_guess(user_guess)
 
 
-def check_guess(char):  #if statement that checks if the guessed letter is in the word.
-    char = char.lower()
+def check_guess(guess):  #if statement that checks if the guessed letter is in the word.
+    guess = guess.lower()
     random_word = random_word_generator(word_list)
-    if char in random_word:
-        print(f"Good guess! {char} is in the word")
-        for letter in random_word:
-            if letter == char:
+    word_guessed = [x.replace(x, "_") for x in random_word]
+    print(word_guessed)
+    if guess in random_word:
+        print(f"Good guess! {guess} is in the word")
+        for letter in enumerate(random_word):
+            if letter == guess:
                 pass
+
+                #word_guessed = word_guessed.replace(, guess)  
     else: 
-        print(f"Sorry {char} is not in the word. Try again")
-    
+        print(f"Sorry {guess} is not in the word. Try again")
 
 word_list = ["mango", "passionfruit", "papaya", "blueberries", "oranges"] 
 
 def ask_for_input_vtwo():  ##takes input from user and validates it 
     while True:
-        user_guess = input("hPlease enter a letter: ")
+        user_guess = input("Please enter a letter: ")
         if not len(user_guess) == 1 and user_guess.isalpha():
             print("invalid letter. please enter a single alphabetical letter")
         elif user_guess in list_of_guesses:
