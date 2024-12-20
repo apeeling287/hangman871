@@ -9,13 +9,17 @@ class Hangman:
         self.word_list = word_list   # list - A list of words
         self.list_of_guesses = list_of_guesses   #list - A list of the guesses that have already been tried. Set this to an empty list initially
         
-    def check_guess(self, char):  #if statement that checks if the guessed letter is in the word.
-        char = char.lower()
+    def check_guess(self, guess):  #if statement that checks if the guessed letter is in the word.
+        guess = guess.lower()
         random_word = random_word_generator(word_list)
-        if char in random_word:
-            print(f"Good guess! {char} is in the word")
+        self.word_guessed = [x.replace(x, "_") for x in random_word]  ##replaces random word with a list of _
+        if guess in random_word:
+            print(f"Good guess! {guess} is in the word")
+            for letter in random_word:
+                if letter == guess:    ##if the users guess is the same as a letter in the word
+                    self.word_guessed.replace("_", guess)                        ##replace the _ with that letter
         else: 
-            print(f"Sorry {char} is not in the word. Try again")
+            print(f"Sorry {guess} is not in the word. Try again")
 
     def ask_for_input_vtwo(self, check_guess):  ##takes input from user and validates it 
         while True:
