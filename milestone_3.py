@@ -18,6 +18,9 @@ def check_guess(guess):  #if statement that checks if the guessed letter is in t
         print(f"Sorry {guess} is not in the word. Try again")
 
 word_list = ["mango", "passionfruit", "papaya", "blueberriesa", "oranges"] 
+random_word = random_word_generator(word_list)
+num_letters = len(set(random_word))
+
 
 def ask_for_input_vtwo():  ##takes input from user and validates it 
     while True:
