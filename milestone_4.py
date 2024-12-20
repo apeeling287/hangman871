@@ -1,7 +1,7 @@
 from milestone_2 import random_word_generator
 
 class Hangman:
-    def __init__(self, word, word_guessed, num_letters, word_list, list_of_guesses, num_lives):
+    def __init__(self, word, word_guessed, num_letters, word_list, list_of_guesses, num_lives=5):
         self.word = word    #The word to be guessed, picked randomly from the word_list
         self.word_guessed = word_guessed   #list - A list of the letters of the word, with _ for each letter not yet guessed. For example, if the word is 'apple', the word_guessed
         self.num_letters = num_letters    #int - The number of UNIQUE letters in the word that have not been guessed yet
@@ -11,15 +11,20 @@ class Hangman:
         
     def check_guess(self, guess):  #if statement that checks if the guessed letter is in the word.
         guess = guess.lower()
-        random_word = random_word_generator(word_list)
         self.word_guessed = [x.replace(x, "_") for x in random_word]  ##replaces random word with a list of _
         if guess in random_word:
             print(f"Good guess! {guess} is in the word")
-            for letter in random_word:
-                if letter == guess:    ##if the users guess is the same as a letter in the word
-                    self.word_guessed.replace("_", guess)                        ##replace the _ with that letter
+            for index, letter in enumerate(random_word):
+                if letter == guess:
+                    print(letter)
+                    self.word_guessed[index] = guess
+                    print(self.word_guessed)
+            self.num_letters -= 1
+            print(self.num_letters)
         else: 
-            print(f"Sorry {guess} is not in the word. Try again")
+            print(f"Sorry {guess} is not in the word. Try again")                       ##replace the _ with that letter
+
+    
 
     def ask_for_input_vtwo(self, check_guess):  ##takes input from user and validates it 
         while True:
@@ -32,9 +37,11 @@ class Hangman:
                 check_guess(user_guess)
                 list_of_guesses.append(user_guess)
 
+word_list = ["mango", "passionfruit", "papaya", "blueberries", "oranges"] 
+random_word = random_word_generator(word_list)
 list_of_guesses = []
 #ask_for_input_vtwo()
-word_list = ["mango", "passionfruit", "papaya", "blueberries", "oranges"] 
+
 
     
 

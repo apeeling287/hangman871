@@ -1,19 +1,8 @@
 
 from milestone_2 import random_word_generator
 
-# def ask_for_input():  ##takes input from user and validates it 
-#     while True:
-#         user_guess = input("hPlease enter a letter: ")
-#         if len(user_guess) == 1 and user_guess.isalpha():
-#             break
-#         else: 
-#             print("Invalid letter. Please, enter a single alphabetical character") 
-#     check_guess(user_guess)
-
-
 def check_guess(guess):  #if statement that checks if the guessed letter is in the word.
     guess = guess.lower()
-    random_word = random_word_generator(word_list)
     word_guessed = [x.replace(x, "_") for x in random_word]
     print(word_guessed)
     if guess in random_word:
@@ -22,13 +11,13 @@ def check_guess(guess):  #if statement that checks if the guessed letter is in t
             if letter == guess:
                 print(letter)
                 word_guessed[index] = guess
-            
-
-                #word_guessed = word_guessed.replace(, guess)  
+                print(word_guessed)
+        num_letters -= 1
+        print(num_letters)
     else: 
         print(f"Sorry {guess} is not in the word. Try again")
 
-word_list = ["mango", "passionfruit", "papaya", "blueberries", "oranges"] 
+word_list = ["mango", "passionfruit", "papaya", "blueberriesa", "oranges"] 
 
 def ask_for_input_vtwo():  ##takes input from user and validates it 
     while True:
@@ -40,7 +29,9 @@ def ask_for_input_vtwo():  ##takes input from user and validates it
         else:    
             check_guess(user_guess)
             list_of_guesses.append(user_guess)
-
+    
+random_word = random_word_generator(word_list)
+num_letters = len(set(random_word))
 list_of_guesses = []
 ask_for_input_vtwo()
 #check_guess(guess)
