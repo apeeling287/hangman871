@@ -17,7 +17,7 @@ class Hangman:
             for index, letter in enumerate(self.random_word):
                 if letter == guess:
                     self.word_guessed[index] = guess
-                    self.num_letters -= 1     
+            self.num_letters -= 1     
             print(self.word_guessed)     
             print(f"you have {self.num_letters} remaining to guess")
         else: 
@@ -30,7 +30,7 @@ class Hangman:
     def ask_for_input(self):  ##takes input from user and validates it 
         while True:
             user_guess = input("Please enter a letter: ")
-            if not len(user_guess) == 1 and user_guess.isalpha():
+            if len(user_guess) != 1 or not user_guess.isalpha():
                 print("invalid letter. please enter a single alphabetical letter")
             elif user_guess in self.list_of_guesses:
                 print("You already tried that letter!")
