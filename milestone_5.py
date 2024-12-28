@@ -17,15 +17,14 @@ class Hangman:
             for index, letter in enumerate(self.random_word):
                 if letter == guess:
                     self.word_guessed[index] = guess
-                    #print(self.word_guessed)
-                    self.num_letters -= 1      ## imdented 
+                    self.num_letters -= 1     
+            print(self.word_guessed)     
             print(f"you have {self.num_letters} remaining to guess")
         else: 
             print(f"Sorry {guess} is not in the word. Try again") 
             self.num_lives -= 1
             print(f"you have {self.num_lives} lives left")    
-            # if self.num_lives == 0:
-            #     print("GAME OVER")                
+                     
     
 
     def ask_for_input(self):  ##takes input from user and validates it 
@@ -41,7 +40,6 @@ class Hangman:
                 break
 
 
-#list_of_words = ["mango", "passionfruit", "papaya", "blueberries", "oranges"] 
 
 def play_game(word_list):
     num_lives = 5
